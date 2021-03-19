@@ -1,17 +1,22 @@
 <template>
-  <div class="hello">
-  
-    <h2>{{obj.title}}</h2>
+  <div class="container">
+    
+    <h2 id="titleComic">{{obj.title}}</h2>
     <div id="image" v-bind:style="{ backgroundImage:'url('+obj.url+')' }"></div>
+
+     <rating :grade="3" :maxStars="5" :hasCounter="true" />
   </div>
 </template>
 
 <script>
 import axios from 'axios'
-
+import rating from '@/components/rating.vue'
 export default {
   name: 'comic',
-  
+  components: {
+    
+    rating
+  },
 data() {   
       return {
          dataComic: [],
